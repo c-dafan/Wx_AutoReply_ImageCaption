@@ -1,17 +1,16 @@
-# 微信自动回复Py服务器端
+# image and video caption for 微信自动回复
 
 ## abstract
 
-这个项目需要配合autoReply_WX使用。
+此项目需要配合autoReply_WX使用。
 
 主体功能为：微信公众号自动回复。微信公众号将消息转发到autoReply_WX后，由autoReply_wx将各类消息路由
-到各自个handler。autoReply_Wx使用SpringBoot框架。
+到各自个handler。
 
-这个项目为对图像内容和视频内容的识别，并对内容进行描述（image caption）。
-由autoReply_WX将**视频或者图像消息**发送到RabbitMq，此项目作为接收端，处理接收到的消息，
-并把处理结果返回给autoReply_Wx,由其发送给用户。
+此项目的主要功能为image and video caption(图像内容描述)，主要用深度学习框架Keras编写，并利用RabbitMq接收任务消息。
+由autoReply_WX将**视频或者图像消息**发送到RabbitMq，然后此项目作为接收端，接收并处理接收到的消息，
+把处理结果返回给autoReply_Wx,由其发送给用户。
 
-autoReply_Wx利用RabbitMq，从而实现把消息路由到此接收端。
 
 ## 使用方法
 
@@ -29,3 +28,21 @@ port = "5672"
 ```bash
 python main.py
 ```
+
+
+## image caption
+
+![imageCaption](png/imageCaption.png)
+
+![imageCaption](png/imagecaption-.png)
+
+## video caption
+
+![videomodel](png/videomodel.png)
+
+![videores](png/videores.png)
+
+## References：
+[2015-Show and Tell A Neural Image Caption Generator](https://arxiv.org/abs/1411.4555v2)
+
+[Sequence to Sequence – Video to Text](https://arxiv.org/abs/1505.00487)
